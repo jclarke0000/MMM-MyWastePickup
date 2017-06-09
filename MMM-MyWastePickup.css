@@ -1,0 +1,46 @@
+.MMM-MyWastePickup .pickup-container {
+  line-height: 1.75;
+  font-size: 20px;
+  margin: 0;
+  padding: 0;
+  border-bottom: solid 1px #222;
+  position: relative;
+}
+
+.MMM-MyWastePickup .pickup-container .pickup-date {
+  color: #FFF;
+}
+
+.MMM-MyWastePickup .pickup-container .waste-pickup-icon-container {
+  white-space: nowrap;
+  position: absolute;
+  right : 0px;
+  top: 6px;
+  line-height: 24px;
+}
+
+.MMM-MyWastePickup .pickup-container .waste-pickup-icon-container .waste-pickup-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+  vertical-align: bottom;
+  display: inline;
+  position: relative;
+  margin-left:4px;
+}
+
+.MMM-MyWastePickup .pickup-container .waste-pickup-icon-container .waste-pickup-icon.recycle {
+  fill: #3499D4;
+}
+.MMM-MyWastePickup .pickup-container .waste-pickup-icon-container .waste-pickup-icon.compost {
+  fill: #00A651;
+}
+.MMM-MyWastePickup .pickup-container .waste-pickup-icon-container .waste-pickup-icon.garbage {
+  fill: #787878;
+}
+.MMM-MyWastePickup .pickup-container .waste-pickup-icon-container .waste-pickup-icon.yard_waste {
+  fill: #C2A36E;
+}
+.MMM-MyWastePickup .pickup-container .waste-pickup-icon-container .waste-pickup-icon.christmas_tree {
+  fill: #008D45;
+}
