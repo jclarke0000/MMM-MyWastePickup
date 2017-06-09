@@ -4,6 +4,9 @@ This a module for [MagicMirror](https://github.com/MichMich/MagicMirror).
 
 This displays your schedule for Toronto curbside waste pickup.
 
+![Screenshot](/../screenshots/screenshot.png?raw=true "Screenshot")
+
+
 ## Installation
 1. Navigate into your MagicMirror `modules` folder and execute<br>
 `git clone https://github.com/jclarke0000/MMM-MyWasteCollection.git`.
