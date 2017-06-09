@@ -37,9 +37,17 @@ Module.register('MMM-MyWastePickup', {
   },
 
   getPickups: function() {
+
+    clearTimeout(this.timer);
+    this.timer = null;
+
     this.sendSocketNotification("MMM-MYWASTEPICKUP-GET", {collectionCalendar: this.config.collectionCalendar, instanceId: this.identifier});
 
     //set alarm to check again tomorrow
+    var self = this;
+    this.timer = setTimeout( function() {
+      self.getPickups();
+    }, 60 * 60 * 1000); //update once an hour
   },
 
   socketNotificationReceived: function(notification, payload) {
@@ -70,7 +78,7 @@ Module.register('MMM-MyWastePickup', {
     }
 
     var self = this;
-    
+
     this.nextPickups.forEach( function(pickup) {
 
       var pickupContainer = document.createElement("div");
