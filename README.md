@@ -1,4 +1,4 @@
-# MMM-MyWasteCollection
+# MMM-MyWastePickup
 
 This a module for [MagicMirror](https://github.com/MichMich/MagicMirror).
 
