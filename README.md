@@ -27,7 +27,7 @@ to determine your collection calendar, and configure it as below:
   <tbody>
     <tr>
       <td><code>collectionCalendar</code></td>
-      <td><strong>REQUIRED</strong> The schedule for your curbside pickup, as dertmined above.<br><br><strong>String</strong> <code>Array</code><br />Valid values are `MondayNight`, `Tuesday1`, `Tuesday2`, `Wednesday1`, `Wednesday2`, `Thursday1`, `Thursday2`, `Friday1`, or `Friday2`.<br />Any other value will be ignored and the module will default to `Tuesday1`.</td>
+      <td><strong>REQUIRED</strong> The schedule for your curbside pickup, as dertmined above.<br><br><strong>String</strong> <code>Array</code><br />Valid values are <code>MondayNight</code>, <code>Tuesday1</code>, <code>Tuesday2</code>, <code>Wednesday1</code>, <code>Wednesday2</code>, <code>Thursday1</code>, <code>Thursday2</code>, <code>Friday1</code>, or <code>Friday2</code>.<br />Any other value will be ignored and the module will default to <code>Tuesday1</code>.</td>
     </tr>
   </tbody>
 </table>
