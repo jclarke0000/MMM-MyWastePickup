@@ -40,7 +40,7 @@ to determine your collection calendar, and configure it as below:
   position: 'top_left',
   header: 'My Waste Collection',
   config: {
-    collectionCalendar: `Tuesday1`
+    collectionCalendar: 'Tuesday1'
   }
 },
 ```
