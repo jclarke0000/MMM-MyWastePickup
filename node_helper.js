@@ -12,8 +12,10 @@ module.exports = NodeHelper.create({
     this.schedule = null;
 
     //new schedule file can be downloaded at
-    //http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=2ee34b5073cfa310VgnVCM10000071d60f89RCRD&vgnextchannel=bcb6e03bb8d1e310VgnVCM10000071d60f89RCRD
-    this.scheduleCSVFile = this.path + "/schedule.csv"
+    //https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/garbage-and-recycling/#8e932504-cabb-71b1-b23a-6cf504f7c474
+    this.scheduleCSVFile = this.path + "/schedule.csv";
+
+    this.scheduleCustomCSVFile = this.path + "/schedule_custom.csv";
 
   },
 
@@ -24,9 +26,14 @@ module.exports = NodeHelper.create({
     if (this.schedule == null) {
       //not yet setup. Load and parse the data file; set up variables.
 
-      fs.readFile(this.scheduleCSVFile, 'utf8', function(err, rawData) {
+      var scheduleFile = this.scheduleCSVFile;
+      if (payload.collectionCalendar == "Custom") {
+        scheduleFile = this.scheduleCustomCSVFile;
+      }
+
+      fs.readFile(scheduleFile, "utf8", function(err, rawData) {
         if (err) throw err;
-        parse(rawData, {delimiter: ',', columns: true, ltrim: true}, function(err, parsedData) {
+        parse(rawData, {delimiter: ",", columns: true, ltrim: true}, function(err, parsedData) {
           if (err) throw err;
 
           self.schedule = parsedData;
@@ -51,18 +58,24 @@ module.exports = NodeHelper.create({
       // check if pickup date lands on a holiday.
       // If so, move to next day
 
-      //reassign strings to booleans for particular watse type
+      //reassign strings to booleans for particular waste type
       obj.GreenBin = (obj.GreenBin == "0" ? false : true);
       obj.Garbage = (obj.Garbage == "0" ? false : true);
       obj.Recycling = (obj.Recycling == "0" ? false : true);
       obj.YardWaste = (obj.YardWaste == "0" ? false : true);
       obj.ChristmasTree = (obj.ChristmasTree == "0" ? false : true);
     });
+
   },
 
   getNextPickups: function(payload) {
     var start = moment().startOf("day"); //today, 12:00 AM
     var end = moment().startOf("day").add(14, "days");
+
+    console.log("Filtering to:");
+    console.log("Schedule: " + payload.collectionCalendar);
+    console.log("Start: " + start.format("D-MMM-YYYY"));
+    console.log("End: " + end.format("D-MMM-YYYY"));
 
     //find info for next pickup dates
     var nextPickups = this.schedule.filter(function (obj) {

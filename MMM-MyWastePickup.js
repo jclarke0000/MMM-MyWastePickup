@@ -13,7 +13,8 @@ Module.register('MMM-MyWastePickup', {
     "Thursday1",
     "Thursday2",
     "Friday1",
-    "Friday2"
+    "Friday2",
+    "Custom"
   ],
 
   // Define required styles.
