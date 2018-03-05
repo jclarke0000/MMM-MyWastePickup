@@ -48,9 +48,9 @@ to determine your collection calendar, and configure it as below:
 ## Note
 
 This works off of a static CSV file obtained from the city of Toronto's website here:
-http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=2ee34b5073cfa310VgnVCM10000071d60f89RCRD&vgnextchannel=bcb6e03bb8d1e310VgnVCM10000071d60f89RCRD
+https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/garbage-and-recycling/#8e932504-cabb-71b1-b23a-6cf504f7c474
 
-As such, this module currently only has data until the end of the year 2017.  I'll be updating this
-to include 2018's data when it's available, but if I forget to do it, download the CSV for 2018, and
+As such, this module currently only has data until the end of the year 2018.  I'll be updating this
+to include 2019's data when it's available, but if I forget to do it, download the CSV for 2019, and
 copy it over the existing schedule.csv file in this module's directory.
 
