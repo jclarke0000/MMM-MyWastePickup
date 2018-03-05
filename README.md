@@ -79,4 +79,7 @@ The following points are very important:
 * The date format needs to be specified as `MM/DD/YY` (e.g.: 05/28/18 for 28-May-2018)
 * The last five fields of each line specify whether the particular waste product is scheduled to be picked up on the given date. A value of `0` means no pick up. A value of ANYTHING ELSE means the product will be picked up.  Using the first pick up date entry in the template above, `1,0,1,0,0` means that `GreenBin` and `Recycling` will be picked up on that date, while `Garbage`, `YardWaste`, and `ChristmasTree` will not be picked up.
 
+3. Save the file as `schedule_custom.csv` in the `MMM-MyWasteCollection` directory.
+4. Restart Magic Mirror
+
 
