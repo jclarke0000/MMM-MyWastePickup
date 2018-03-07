@@ -72,11 +72,6 @@ module.exports = NodeHelper.create({
     var start = moment().startOf("day"); //today, 12:00 AM
     var end = moment().startOf("day").add(14, "days");
 
-    console.log("Filtering to:");
-    console.log("Schedule: " + payload.collectionCalendar);
-    console.log("Start: " + start.format("D-MMM-YYYY"));
-    console.log("End: " + end.format("D-MMM-YYYY"));
-
     //find info for next pickup dates
     var nextPickups = this.schedule.filter(function (obj) {
       return obj.Calendar == payload.collectionCalendar &&

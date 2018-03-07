@@ -93,9 +93,9 @@ Module.register('MMM-MyWastePickup', {
       var today = moment().startOf("day");
       var pickUpDate = moment(pickup.pickupDate);
       if (today.isSame(pickUpDate)) {
-        dateContainer.innerHTML = "Today";
+        dateContainer.innerHTML = self.translate("TODAY");
       } else if (moment(today).add(1, "days").isSame(pickUpDate)) {
-        dateContainer.innerHTML = "Tomorrow";
+        dateContainer.innerHTML = self.translate("TOMORROW");
       } else if (moment(today).add(7, "days").isAfter(pickUpDate)) {
         dateContainer.innerHTML = pickUpDate.format("dddd");
       } else {
