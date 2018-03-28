@@ -70,7 +70,7 @@ module.exports = NodeHelper.create({
 
   getNextPickups: function(payload) {
     var start = moment().startOf("day"); //today, 12:00 AM
-    var end = moment().startOf("day").add(14, "days");
+    var end = moment().startOf("day").add(payload.weeksToDisplay * 7, "days");
 
     //find info for next pickup dates
     var nextPickups = this.schedule.filter(function (obj) {

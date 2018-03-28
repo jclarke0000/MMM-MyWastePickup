@@ -29,6 +29,10 @@ to determine your collection calendar, and configure it as below:
       <td><code>collectionCalendar</code></td>
       <td><strong>REQUIRED</strong> The schedule for your curbside pickup, as dertmined above.<br><br><strong>String</strong> <code>Array</code><br />Valid values are <code>MondayNight</code>, <code>Tuesday1</code>, <code>Tuesday2</code>, <code>Wednesday1</code>, <code>Wednesday2</code>, <code>Thursday1</code>, <code>Thursday2</code>, <code>Friday1</code>, or <code>Friday2</code>.<br />It is also possible to specify <code>Custom</code> in case you want to use your own custom pickup schedule.  See below for more information about using your own schedule.<br /><br />Any other value will be ignored and the module will default to <code>Tuesday1</code>.</td>
     </tr>
+    <tr>
+      <td><code>weeksToDisplay</code></td>
+      <td>How many weeks into the future to show collection dates.<br /><br />Defaults to <code>2</code>.</td>
+    </tr>
   </tbody>
 </table>
 

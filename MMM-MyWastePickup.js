@@ -1,7 +1,8 @@
 Module.register('MMM-MyWastePickup', {
 
   defaults: {
-    collectionCalendar: 'Tuesday1'
+    collectionCalendar: "Tuesday1",
+    weeksToDisplay: 2
   },
 
   validCollectionCalendars: [
@@ -42,7 +43,7 @@ Module.register('MMM-MyWastePickup', {
     clearTimeout(this.timer);
     this.timer = null;
 
-    this.sendSocketNotification("MMM-MYWASTEPICKUP-GET", {collectionCalendar: this.config.collectionCalendar, instanceId: this.identifier});
+    this.sendSocketNotification("MMM-MYWASTEPICKUP-GET", {collectionCalendar: this.config.collectionCalendar, weeksToDisplay: this.config.weeksToDisplay, instanceId: this.identifier});
 
     //set alarm to check again tomorrow
     var self = this;
@@ -73,7 +74,7 @@ Module.register('MMM-MyWastePickup', {
     var wrapper = document.createElement("div");
 
     if (this.nextPickups.length == 0) {
-      wrapper.innerHTML = this.translate('LOADING');
+      wrapper.innerHTML = this.translate("LOADING");
       wrapper.className = "dimmed light small";
       return wrapper;
     }
