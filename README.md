@@ -31,7 +31,7 @@ to determine your collection calendar, and configure it as below:
     </tr>
     <tr>
       <td><code>weeksToDisplay</code></td>
-      <td>How many weeks into the future to show collection dates.<br /><br />Defaults to <code>2</code>.</td>
+      <td>How many weeks into the future to show collection dates.<br /><br /><strong>Number</strong><br />Default: <code>2</code>.</td>
     </tr>
   </tbody>
 </table>
