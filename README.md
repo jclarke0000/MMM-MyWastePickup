@@ -33,6 +33,10 @@ to determine your collection calendar, and configure it as below:
       <td><code>weeksToDisplay</code></td>
       <td>How many weeks into the future to show collection dates.<br /><br /><strong>Number</strong><br />Default: <code>2</code>.</td>
     </tr>
+    <tr>
+      <td><code>limitTo</code></td>
+      <td>Limit the display to the spcified number of pickups.<br /><br /><strong>Number</strong><br />Default: <code>99</code>.</td>
+    </tr>
   </tbody>
 </table>
 
