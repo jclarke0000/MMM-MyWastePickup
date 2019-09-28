@@ -28,6 +28,7 @@ Module.register('MMM-MyWastePickup', {
     Log.info('Starting module: ' + this.name);
 
     this.nextPickups = [];
+    this.initializing = true;
 
     if (this.validCollectionCalendars.indexOf(this.config.collectionCalendar) == -1) {
       this.config.collectionCalendar = "Tuesday1";
@@ -54,7 +55,7 @@ Module.register('MMM-MyWastePickup', {
   },
 
   socketNotificationReceived: function(notification, payload) {
-    if (notification == "MMM-MYWASTEPICKUP-RESPONSE" + this.identifier && payload.length > 0) {
+    if (notification == "MMM-MYWASTEPICKUP-RESPONSE" + this.identifier) {
       this.nextPickups = payload;
       this.updateDom(1000);
     }
@@ -62,9 +63,9 @@ Module.register('MMM-MyWastePickup', {
 
   svgIconFactory: function(glyph) {
 
-    var svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    var svg = document.createElementNS("http://www.w3.org/2000/svg","svg");
     svg.setAttributeNS(null, "class", "waste-pickup-icon " + glyph);
-    var use = document.createElementNS('http://www.w3.org/2000/svg', "use");
+    var use = document.createElementNS("http://www.w3.org/2000/svg", "use");
     use.setAttributeNS("http://www.w3.org/1999/xlink", "href", this.file("icon_sprite.svg#") + glyph);
     svg.appendChild(use);
     
@@ -74,14 +75,22 @@ Module.register('MMM-MyWastePickup', {
   getDom: function() {
     var wrapper = document.createElement("div");
 
-    if (this.nextPickups.length == 0) {
+    if (this.initializing == true) {
       wrapper.innerHTML = this.translate("LOADING");
       wrapper.className = "dimmed light small";
+      this.initializing = false;
+      return wrapper;
+    }
+
+    if(this.nextPickups.length == 0) {
+      console.error("[MMM-MyWastePickup] ERROR: No Schedule.");
+      wrapper.innerHTML = "No schedule";
+      wrapper.className = "light small";
       return wrapper;
     }
 
     // this.nextPickups.forEach( function(pickup) {
-    for (i = 0; i < this.nextPickups.length; i++) {
+    for (var i = 0; i < this.nextPickups.length; i++) {
 
       if (i == this.config.limitTo) {
         break;
@@ -135,7 +144,7 @@ Module.register('MMM-MyWastePickup', {
 
       wrapper.appendChild(pickupContainer);
 
-    };
+    }
 
     return wrapper;
   }
