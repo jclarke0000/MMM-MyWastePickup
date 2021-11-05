@@ -33,7 +33,7 @@ module.exports = NodeHelper.create({
 
       fs.readFile(scheduleFile, "utf8", function(err, rawData) {
         if (err) throw err;
-        parse(rawData, {delimiter: ",", columns: true, ltrim: true}, function(err, parsedData) {
+        parse(rawData, {delimiter: ",", columns: true, ltrim: false}, function(err, parsedData) {
           if (err) throw err;
 
           self.schedule = parsedData;
@@ -52,7 +52,16 @@ module.exports = NodeHelper.create({
     this.schedule.forEach( function(obj) {
 
       //convert date strings to moment.js Date objects
-      obj.pickupDate = moment(obj.WeekStarting, "MM/DD/YY");
+
+      //UPDATE Nov 2021.  Date format has changed in Toronto.ca data files.
+      //So we do a check for the format first and convert to a Moment object
+      //accordingly, while maintaining compatibility for people using the
+      //custom calendar
+      if (obj.WeekStarting.indexOf("/") != -1 ) {
+        obj.pickupDate = moment(obj.WeekStarting, "MM/DD/YY");
+      } else if (obj.WeekStarting.indexOf("-") != -1 ) {
+        obj.pickupDate = moment(obj.WeekStarting, "YYYY-MM-DD");
+      }
 
       // to do:
       // check if pickup date lands on a holiday.

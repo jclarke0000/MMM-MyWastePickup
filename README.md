@@ -14,7 +14,7 @@ This displays your schedule for Toronto curbside waste pickup.
 
 ## Configuration
 
-Go to http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=3f3cbf3b6e156510VgnVCM10000071d60f89RCRD
+Go to https://www.toronto.ca/services-payments/recycling-organics-garbage/houses/collection-schedule/curbside-collection-maps/
 to determine your collection calendar, and configure it as below:
 
 <table>
@@ -56,11 +56,10 @@ to determine your collection calendar, and configure it as below:
 ## Note
 
 This works off of a static CSV file obtained from the city of Toronto's website here:
-https://www.toronto.ca/city-government/data-research-maps/open-data/open-data-catalogue/garbage-and-recycling/#8e932504-cabb-71b1-b23a-6cf504f7c474
+https://open.toronto.ca/dataset/solid-waste-pickup-schedule/
 
-As such, this module currently only has data until the end of the year 2018.  I'll be updating this
-to include 2019's data when it's available, but if I forget to do it, download the CSV for 2019, and
-copy it over the existing schedule.csv file in this module's directory.
+As such, this module currently only has data until the end of the year 2021.In 2022 and subsequent years, download the new
+schedule and copy it over the existing schedule.csv file in this module's directory.
 
 
 
