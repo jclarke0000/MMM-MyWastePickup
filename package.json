@@ -9,7 +9,7 @@
   "author": "Jeff Clarke",
   "license": "MIT",
   "dependencies": {
-    "csv-parse": "^1.2.0",
+    "csv-parse": "^4.4.6",
     "fs": "0.0.1-security",
     "install": "^0.10.1",
     "moment": "^2.21.0",
